@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>~/startpage</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+
+    <!-- anime.js -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="img">
+            <img src="https://www.smi-cons.it/wp-content/themes/theme-smi/img/logo-smi-preload.svg" />
+        </div>
+    </header>
+
+    <main>
+        <div id="content">
+            <div id="head">
+                <form action="https://www.startpage.com/sp/search?query=">
+                    <label for="q" autofocus>> cerca / </label>
+                    <input type="text" name="q" autocomplete="off">
+                </form>
+                <div id="info">
+                    <p id="weatherDesc">Loading...</p>
+                    <p id="temp">Loading...</p>
+                </div>
+            </div>
+            <div id="links">
+                <section>
+                    <h3>SMI</h3>
+                        <ul>
+                            <li><a href="https://www.smi-cons.it/">SMI</a></li>
+                            <li><a href="https://smart.smi-cons.it/Dashboard/Account/Login">Younified Platform</a></li>
+                            <li><a href="https://smartcloud.newyouniverse.cloud/index.php/login">SMI Cloud</a></li>
+                        </ul>
+                </section>
+                <section>
+                    <h3>Personale</h3>
+                        <ul>
+                            <li><a href="http://192.168.0.10:18080/">dashboard</a></li>
+                            <li><a href="https://hr.studiozorzan.it/hrpzorzan/jsp/login.jsp">Studio Zorzan</a></li>
+                            <li><a href="https://mycardsodexo.it/">Sodexo</a></li>
+                        </ul>
+                </section>
+                <section>
+                    <h3>MIMS</h3>
+                        <ul>
+                            <li><a href="https://www.ilportaledellautomobilista.it/web/portale-automobilista/home">PDA</a></li>
+                            <li><a href="https://sso.ilportaledeltrasporto.it/">PDT</a></li>
+                            <li><a href="https://enterprise-hd.infocert.it/it/support/home">Infocert</a></li>
+                        </ul>
+                </section>
+                <section>
+                    <h3>MDS</h3>
+                        <ul>
+                            <li><a href="https://smiservicedesk.service-now.com/navpage.do">ServiceNow</a></li>
+                            <li><a href="https://webticketing.consob.it/Consob/ServiceDesk/Dashboard">Consob</a></li>
+                            <li><a href="https://tisdisclosure.leonardocompany.com/">Leonardo</a></li>
+                        </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <a href="http://192.168.0.10:18080/">daniele marini</a>
+    </footer>
+    <script type="module">
+        // ----- CHANGE THESE VARIABLES
+
+        // Do you want to show the weather?
+        const weather = true;
+        // Do you want animations?
+        const animated = true;
+
+        // Read the documentation for setting the weather API key
+        const apiKey = "[API KEY]";
+        const lat = 40.7127861;
+        const lon = -74.0134275;
+        const units = "imperial";
+
+        // ----- DON'T TOUCH ANYTHING BELOW THIS UNLESS YOU KNOW WHAT YOU'RE DOING
+
+        var weatherEl = document.getElementById("weatherDesc");
+        var tempEl = document.getElementById("temp");
+
+        if (weather) {
+            var apiLink =
+                "https://api.openweathermap.org/data/2.5/weather?lat=" +
+                lat +
+                "&lon=" +
+                lon +
+                "&units=" +
+                units +
+                "&appid=" +
+                apiKey;
+            console.log(apiLink);
+            // grabs json data from url, thanks https://stackoverflow.com/a/35970894
+            var getJSON = function (url, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.responseType = "json";
+                xhr.onload = function () {
+                    var status = xhr.status;
+                    if (status === 200) {
+                        callback(null, xhr.response);
+                    } else {
+                        callback(status, xhr.response);
+                    }
+                };
+                xhr.send();
+            };
+
+            // gets city name from weather api
+            getJSON(apiLink, function (err, data) {
+                if (err !== null) {
+                    weatherEl.innerText = "";
+                    tempEl.innerText = "";
+                } else {
+                    var city = data.name;
+                    var temp = data.main.temp;
+                    var hiTemp = data.main.temp_max;
+                    var loTemp = data.main.temp_min;
+                    var weatherDesc = data.weather[0].description;
+                    weatherEl.innerHTML =
+                        weatherDesc + " in " + city;
+                    tempEl.innerHTML = "h: " + hiTemp + "° / c: " + temp + "° / l: " + loTemp + "°";
+                }
+            });
+        } else {
+            weatherEl.innerText = "";
+            tempEl.innerText = "";
+        }
+
+
+
+        if (animated) {
+            // hides all elements
+            document.querySelectorAll("*").forEach(el => el.style.opacity = 0);
+
+            // anime.js animation function
+            function playAnimation() {
+                var tl = anime.timeline({
+                    easing: "easeInOutExpo",
+                    duration: 2000,
+                });
+
+                tl.add({
+                    targets: "#img",
+                    opacity: [0, 1],
+                    translateY: [100, 0],
+                })
+                    .add(
+                        {
+                            targets: "#img",
+                            width: ["100%", "60%"],
+                        },
+                        "-=1200"
+                    )
+                    .add(
+                        {
+                            targets: "main *",
+                            opacity: [0, 1],
+                            translateY: [10, 0],
+                            delay: anime.stagger(15),
+                        },
+                        "-=1800"
+                    );
+            }
+
+            window.onload = function () {
+                document.querySelectorAll("*").forEach(el => el.style.opacity = 1);
+                playAnimation();
+            }
+        }
+    </script>
+</body>
+
+</html>
