@@ -1,2 +1,2 @@
 # smi
-simple startpage
+a simple startpage
