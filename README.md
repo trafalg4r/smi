@@ -1,0 +1,2 @@
+# smi
+simple startpage
