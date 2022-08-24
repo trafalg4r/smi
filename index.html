@@ -79,7 +79,8 @@
         const lat = 41.90;
         const lon = 12.50;
         const units = "metric"
-	const lang = "it";
+	const lang = "it"
+	const citta = rome;
 
         // ----- DON'T TOUCH ANYTHING BELOW THIS UNLESS YOU KNOW WHAT YOU'RE DOING
 
@@ -95,7 +96,9 @@
                 "&units=" +
                 units +
 		"&lang=" +
-		lang
+		lang +
+		"&q=" +
+		citta +
                 "&appid=" +
                 apiKey;
             console.log(apiLink);
@@ -121,7 +124,7 @@
                     weatherEl.innerText = "";
                     tempEl.innerText = "";
                 } else {
-                    var city = "Roma";
+                    var city = data.name;
                     var temp = data.main.temp;
                     var hiTemp = data.main.temp_max;
                     var loTemp = data.main.temp_min;
