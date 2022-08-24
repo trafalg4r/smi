@@ -78,7 +78,8 @@
         const apiKey = "44662ea12f713e648fa5b6928321a39c";
         const lat = 41.90;
         const lon = 12.50;
-        const units = "metric";
+        const units = "metric"
+	const lang = it;
 
         // ----- DON'T TOUCH ANYTHING BELOW THIS UNLESS YOU KNOW WHAT YOU'RE DOING
 
@@ -93,6 +94,8 @@
                 lon +
                 "&units=" +
                 units +
+		"lang" +
+		lang
                 "&appid=" +
                 apiKey;
             console.log(apiLink);
@@ -118,14 +121,14 @@
                     weatherEl.innerText = "";
                     tempEl.innerText = "";
                 } else {
-                    var city = data.name;
+                    var city = Roma;
                     var temp = data.main.temp;
                     var hiTemp = data.main.temp_max;
                     var loTemp = data.main.temp_min;
                     var weatherDesc = data.weather[0].description;
                     weatherEl.innerHTML =
-                        weatherDesc + " in " + city;
-                    tempEl.innerHTML = "h: " + hiTemp + "° / c: " + temp + "° / l: " + loTemp + "°";
+                        weatherDesc + " a " + city;
+                    tempEl.innerHTML = "massima: " + hiTemp + "° / temp: " + temp + "° / minima: " + loTemp + "°";
                 }
             });
         } else {
