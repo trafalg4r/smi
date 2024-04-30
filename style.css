@@ -98,8 +98,8 @@ form input {
   padding: px;
   color: var(--color-fg);
   font-family: var(--font-family);
-  font-size: 2vw;
-  border-radius: 8px;
+  font-size: 1vw;
+  border-radius: 10px;
 }
 
 form input:focus {
