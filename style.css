@@ -4,6 +4,7 @@
   --color-bg: #141319;
   --color-bg-light: #797979;
   --color-fg: #649722;
+  --color-fgg: #ffffff;
 
   --color-link-hover: #8bbf4b;
   --color-link: #005b9d;
@@ -20,7 +21,7 @@ html,
 body {
   overflow: hidden;
   background: var(--color-bg);
-  color: var(--color-fg);
+  color: var(--color-fgg);
   font-family: var(--font-family);
   height: 100%;
   width: 100%;
