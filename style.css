@@ -35,8 +35,8 @@ header {
 }
 
 header div#img {
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
   padding: auto;
   display: flex;
   justify-content: center;
