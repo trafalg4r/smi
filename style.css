@@ -95,11 +95,11 @@ form input {
   display: inline-block;
   border: none;
   background-color: var(--color-bg-light);
-  padding: 10px;
+  padding: px;
   color: var(--color-fg);
   font-family: var(--font-family);
   font-size: 2vw;
-  border-radius: 0px;
+  border-radius: 8px;
 }
 
 form input:focus {
