@@ -93,13 +93,10 @@ form {
 form input {
  position: absolute;
  display: flex;
- align-items: center;
- justify-content: center;
  width: calc(100% - 2px);
  height: 100%;
  background: rgb(24 24 29 / 80%);
  z-index: 99;
- visibility: hidden;
  top: -100%;
  backdrop-filter: blur(5px);
 }
