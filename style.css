@@ -3,11 +3,11 @@
 :root {
   --color-bg: #141319;
   --color-bg-light: #797979;
-  --color-fg: #649722;
-  --color-fgg: #ffffff;
+  --color-fg: #ffffff;
+  
 
-  --color-link-hover: #8bbf4b;
-  --color-link: #005b9d;
+  --color-link-hover: #005b9d;
+  --color-link: #8bbf4b;
 
   --font-family: "Source Code Pro", monospace;
 }
@@ -21,7 +21,7 @@ html,
 body {
   overflow: hidden;
   background: var(--color-bg);
-  color: var(--color-fgg);
+  color: var(--color-fg);
   font-family: var(--font-family);
   height: 100%;
   width: 100%;
