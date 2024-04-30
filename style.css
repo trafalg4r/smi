@@ -91,13 +91,15 @@ form {
 }
 
 form input {
- display: flex;
- width: calc(100% - 2px);
- height: 100%;
- background: rgb(24 24 29 / 80%);
- z-index: 99;
- top: -100%;
- backdrop-filter: blur(5px);
+  width: 75%;
+  display: inline-block;
+  border: none;
+  background-color: var(--color-bg-light);
+  padding: px;
+  color: var(--color-fg);
+  font-family: var(--font-family);
+  font-size: 2vw;
+  border-radius: 8px;
 }
 
 form input:focus {
