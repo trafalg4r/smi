@@ -99,7 +99,7 @@ form input {
   color: var(--color-fg);
   font-family: var(--font-family);
   font-size: 2vw;
-  border-radius: 8px;
+  border-radius: 0px;
 }
 
 form input:focus {
