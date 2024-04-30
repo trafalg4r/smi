@@ -91,7 +91,6 @@ form {
 }
 
 form input {
- position: absolute;
  display: flex;
  width: calc(100% - 2px);
  height: 100%;
