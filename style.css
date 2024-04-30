@@ -3,10 +3,10 @@
 :root {
   --color-bg: #141319;
   --color-bg-light: #797979;
-  --color-fg: #ffffff;
+  --color-fg: #649722;
 
   --color-link-hover: #8bbf4b;
-  --color-link: #4a99a3;
+  --color-link: #005b9d;
 
   --font-family: "Source Code Pro", monospace;
 }
