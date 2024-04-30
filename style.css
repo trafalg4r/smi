@@ -98,7 +98,7 @@ form input {
   padding: px;
   color: var(--color-fg);
   font-family: var(--font-family);
-  font-size: 1vw;
+  font-size: 2vw;
   border-radius: 10px;
 }
 
